@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 def _recap(captcha_interface: CaptchaInterface):
     return captcha_interface.cap(
         websiteURL='https://2dfan.com/',
-        websiteKey='6LdUG0AgAAAAAAfSmLDXGMM7XKYMTItv87seZUan',
+        websiteKey='0x4AAAAAAAju-ZORvFgbC-Cd',
         pageAction="checkin",
         isInvisible=True,
     )
