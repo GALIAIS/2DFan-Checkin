@@ -17,21 +17,15 @@ if __name__ == '__main__':
             checkin_result = user.checkin()
             result_dict = checkin_result.__dict__
 
-            if 'error' not in result_dict:
+            if 'checkins_count' in result_dict and 'serial_checkins' in result_dict:
                 print(f"[{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] ✅ 签到成功! 用户 Key: {key}, Session ID: {formatted_session}")
-                if 'message' in result_dict:
-                    print(f"   消息: {result_dict['message']}")
-                if 'data' in result_dict:
-                     print(f"   数据: {result_dict['data']}")
+                print(f"   累计签到次数: {result_dict['checkins_count']}")
+                print(f"   连续签到天数: {result_dict['serial_checkins']}")
+
 
             else:
                 print(f"[{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] ❌ 签到失败! 用户 Key: {key}, Session ID: {formatted_session}")
-                if 'message' in result_dict:
-                    print(f"   错误消息: {result_dict['message']}")
-                if 'error' in result_dict:
-                    print(f"   详细错误: {result_dict['error']}")
-                else:
-                    print(f"   完整签到结果: {result_dict}")
+                print(f"   信息: {result_dict}")
 
         except Exception as e:
             print(f"[{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] 🚫 签到过程中发生异常! 用户 Key: {key}, Session ID: {formatted_session}")
