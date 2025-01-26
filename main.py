@@ -1,3 +1,6 @@
+import datatime
+import time
+
 if __name__ == '__main__':
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     print(f"[{current_time}] 开始执行签到任务...")
